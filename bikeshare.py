@@ -80,7 +80,12 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
+<<<<<<< HEAD
 
+||||||| bfc339f
+
+=======
+>>>>>>> refactoring
 
     return df
 
@@ -116,11 +121,13 @@ def station_stats(df):
 
     # display most commonly used start station
 
-    start_station = df['Start Station'].mode()[0]
+
+    start_station = df['Start Station'].value_counts().idxmax()
+
     print('The most commonly used start station is: ', start_station)
     # display most commonly used end station
 
-    end_station = df['End Station'].mode()[0]
+    end_station = df['End Station'].value_counts().idxmax()
     print('The most commonly used end station is: ', end_station)
 
     # display most frequent combination of start station and end station trip
